@@ -31,6 +31,10 @@ export TEST_PATH="..../projects/find-bad-commit/test.sh"; # Represents test scri
 export KNOWN_BAD_COMMIT="448197801a46155f1d97738e5a7c4d55386e6da4"; # Represents the bad commit hash ID (from the given project)
 export KNOWN_GOOD_COMMIT="c5367dd415b843f5d60f65554b2d44c974bf3f43"; # Represents the good commit hash ID (from the given project)
 ```
+
+#### Test Setup
+
+* Make sure that the test script exit with status code 0 (success) when test pass.
 ---
 
 ### Run

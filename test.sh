@@ -1,2 +1,3 @@
 #!/usr/bin/env bash
-exit 0;
+cd $PROJECT_PATH
+npm run test

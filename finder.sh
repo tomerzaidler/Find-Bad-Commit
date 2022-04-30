@@ -50,6 +50,12 @@ then
     return;
 fi
 
+if [[ -z "${TEST_BRANCH_NAME}" ]]; 
+then
+    echo "The environment variable 'TEST_BRANCH_NAME' must be set and non-empty\n";
+    return;
+fi
+
 if [[ -z "${KNOWN_BAD_COMMIT}" ]]; 
 then
     echo "The environment variable 'KNOWN_BAD_COMMIT' must be set and non-empty\n";
@@ -116,6 +122,15 @@ git bisect run $TEST_PATH
 
 # Stay on the first failing commit after bisect instead of going back to master
 git bisect reset HEAD
+
+# Check if the result is the first bad commit or last good commit
+source $TEST_PATH &> /dev/null;
+err=$?
+
+# If the test pass on the result commit, checkout the next commit in line
+if [ "$err" -eq 0 ]; then
+    git log --reverse --pretty=%H ${TEST_BRANCH_NAME} | grep -A 1 $(git rev-parse HEAD) | tail -n1 | xargs git checkout
+fi
 
 # Show the first bad commit
 echo "\nFIRST BAD COMMIT:\n";

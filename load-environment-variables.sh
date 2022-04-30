@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
-export PROJECT_PATH="/Users/tomerzaidler/private-projects/rapyd-search";
+export PROJECT_PATH="/Users/tomerzaidler/private-projects/bisectercise";
 export TEST_PATH="/Users/tomerzaidler/private-projects/find-bad-commit/test.sh";
-export KNOWN_BAD_COMMIT="448197801a46155f1d97738e5a7c4d55386e6da4";
-export KNOWN_GOOD_COMMIT="c5367dd415b843f5d60f65554b2d44c974bf3f43";
+export TEST_BRANCH_NAME="master";
+export KNOWN_BAD_COMMIT="dcfef02b2be71425e77338ceb08561a1d0f5c331";
+export KNOWN_GOOD_COMMIT="0e25fe7b1dd08dc9515b220c5dccfec580cd9aaa";
